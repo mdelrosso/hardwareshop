@@ -6,46 +6,83 @@ HS.WebUI
 </name>
 </assembly>
 <members>
-<member name="F:HS.WebUI.Bitacora.lblMensaje">
+<member name="F:HS.WebUI.Login.vistaAutenticacion">
 	<summary>
-lblMensaje control.
+ Provee servicios de inicio y fin de sesion
+ </summary>
+	<remarks></remarks>
+</member><member name="F:HS.WebUI.Site.HeadContent">
+	<summary>
+HeadContent control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:HS.WebUI.Bitacora.MultiView1">
+</member><member name="F:HS.WebUI.Site.HeadLoginStatus">
 	<summary>
-MultiView1 control.
+HeadLoginStatus control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:HS.WebUI.Bitacora.ViewBitacora">
+</member><member name="F:HS.WebUI.Site.NavigationMenu">
 	<summary>
-ViewBitacora control.
+NavigationMenu control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:HS.WebUI.Bitacora.grillaBitacora">
+</member><member name="F:HS.WebUI.Site.MainContent">
 	<summary>
-grillaBitacora control.
+MainContent control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:HS.WebUI.Bitacora.btnVolver">
+</member><member name="F:HS.WebUI.AutenticacionVista._autenticador">
 	<summary>
-btnVolver control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
+ Objeto de la capa de negocio dinamico que obtiene y actualiza objetos
+ del tipo Usuario.
+ </summary>
+</member><member name="P:HS.WebUI.AutenticacionVista.UsuarioActual">
+	<summary>
+ Obtiene el usuario de la sesin actual, o Nothing (null en C#), si no
+ esta dentro de una sesion valida.
+ </summary>
+	<value></value>
+	<returns>Usuario o Nothing si no esta dentro de una sesion valida.</returns>
+	<remarks></remarks>
+</member><member name="P:HS.WebUI.AutenticacionVista.IntentosFallidos">
+	<summary>
+ Cuanta los intentos fallidos de inicio de sesion de un usuario valido
+ </summary>
+	<value></value>
+</member><member name="M:HS.WebUI.AutenticacionVista.IniciarSesion(HS.BE.UsuarioDTO)">
+	<summary>
+ Inicia sesion con un usuario
+ </summary>
+</member><member name="M:HS.WebUI.AutenticacionVista.CerrarSesion">
+	<summary>
+ Elimina toda la informacion de la sesion del Usuario actual.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:HS.WebUI.AutenticacionVista.CrearUsuarioParaIniciarSesion(System.String,System.String)">
+	<summary>
+ Retorna una instancia de un usuario valido de acuerdo a los parametros requeridos
+ de inicio de sesion.
+ </summary>
+</member><member name="M:HS.WebUI.AutenticacionVista.UsuarioPoseePermiso(HS.BE.UsuarioDTO,System.String)">
+	<summary>
+ Valida que un usuairo posee un permiso dentro de su perfil.
+ </summary>
+</member><member name="T:HS.WebUI.AutenticacionVista">
+	<summary>
+ Provee funcionalidades de inicio y fin de sesion.
+ </summary>
 </member><member name="F:HS.WebUI.Login.divIniciarSesion">
 	<summary>
 divIniciarSesion control.
@@ -110,98 +147,46 @@ btnCerrarSesion control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:HS.WebUI.Login.vistaAutenticacion">
+</member><member name="F:HS.WebUI.Bitacora.lblMensaje">
 	<summary>
- Provee servicios de inicio y fin de sesion
- </summary>
-	<remarks></remarks>
-</member><member name="F:HS.WebUI.Site.HeadContent">
-	<summary>
-HeadContent control.
+lblMensaje control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:HS.WebUI.Site.HeadLoginStatus">
+</member><member name="F:HS.WebUI.Bitacora.MultiView1">
 	<summary>
-HeadLoginStatus control.
+MultiView1 control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:HS.WebUI.Site.NavigationMenu">
+</member><member name="F:HS.WebUI.Bitacora.ViewBitacora">
 	<summary>
-NavigationMenu control.
+ViewBitacora control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:HS.WebUI.Site.MainContent">
+</member><member name="F:HS.WebUI.Bitacora.grillaBitacora">
 	<summary>
-MainContent control.
+grillaBitacora control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:HS.WebUI.AutenticacionVista._autenticador">
+</member><member name="F:HS.WebUI.Bitacora.btnVolver">
 	<summary>
- Objeto de la capa de negocio dinamico que obtiene y actualiza objetos
- del tipo Usuario.
- </summary>
-	<remarks></remarks>
-</member><member name="P:HS.WebUI.AutenticacionVista.UsuarioActual">
-	<summary>
- Obtiene el usuario de la sesin actual, o Nothing (null en C#), si no
- esta dentro de una sesion valida.
- </summary>
-	<value></value>
-	<returns>Usuario o Nothing (null en C#) si no esta dentro de una sesion valida.</returns>
-	<remarks></remarks>
-</member><member name="P:HS.WebUI.AutenticacionVista.IntentosFallidos">
-	<summary>
- Cuanta los intentos fallidos de inicio de sesion de un usuario valido
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:HS.WebUI.AutenticacionVista.IniciarSesion(HS.BE.UsuarioDTO)">
-	<summary>
- Inicia sesion con un usuario
- </summary>
-	<param name="value"></param>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:HS.WebUI.AutenticacionVista.CerrarSesion">
-	<summary>
- Elimina toda la informacion de la sesion del Usuario actual.
- </summary>
-	<remarks></remarks>
-</member><member name="M:HS.WebUI.AutenticacionVista.CrearUsuarioParaIniciarSesion(System.String,System.String)">
-	<summary>
- Retorna una instancia de un usuario valido de acuerdo a los parametros requeridos
- de inicio de sesion.
- </summary>
-	<param name="nombre"></param>
-	<param name="clave"></param>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:HS.WebUI.AutenticacionVista.UsuarioPoseePermiso(HS.BE.UsuarioDTO,System.String)">
-	<summary>
- Valida que un usuairo posee un permiso dentro de su perfil.
- </summary>
-	<param name="usuarioActual"></param>
-	<param name="nombrePermiso"></param>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="T:HS.WebUI.AutenticacionVista">
-	<summary>
- Provee funcionalidades de inicio y fin de sesion.
- </summary>
-	<remarks></remarks>
+btnVolver control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:HS.WebUI._Default.lblMensaje">
 	<summary>
 lblMensaje control.
@@ -245,6 +230,14 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:HS.WebUI._Default.btnIntegridadBD">
 	<summary>
 btnIntegridadBD control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:HS.WebUI._Default.btnCambioDePrecios">
+	<summary>
+btnCambioDePrecios control.
 </summary>
 	<remarks>
 Auto-generated field.

@@ -1,5 +1,4 @@
-﻿'<Serializable()>
-Public Class BitacoraDTO
+﻿Public Class BitacoraDTO
 
     Private _id As Integer
     Public Property Id() As Integer

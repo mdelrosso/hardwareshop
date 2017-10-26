@@ -17,6 +17,8 @@ Public Class _Default
 
                 btnCarrito.Visible = autenticacionVista.UsuarioPoseePermiso(usuarioActual, "USUARIOFINAL")
 
+                btnCambioDePrecios.Visible = autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMIN_NEGOCIO")
+
                 btnIntegridadBD.Visible = autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMINISTRACION")
                 btnBitacora.Visible = autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMINISTRACION")
                 btnAdministracionUsuarios.Visible = autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMIN_USUARIOS") Or autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMIN_PERFILES") Or autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMINISTRACION")

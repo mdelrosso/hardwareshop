@@ -31,4 +31,8 @@
         <asp:Button ID="btnIntegridadBD" runat="server" Text="Verificar Integridad de Datos" BackColor="LightGray" 
             Visible="False"  Width ="250px" />
     </p>
+    <p>
+        <asp:Button ID="btnCambioDePrecios" runat="server" Text="Actualización de precios" BackColor="LightGray" 
+            Visible="False"  Width ="250px" />
+    </p>
 </asp:Content>
