@@ -26,10 +26,10 @@ header {
     padding: 16px 32px 16px 32px;
 }
 
-    header .logo {
-        float: left;
-        margin: 0;
-    }
+header .logo {
+    float: left;
+    margin: 0;
+}
 
 .contact-data {
     float: left;
@@ -49,9 +49,9 @@ header {
         float: left;
     }
 
-        .contact-data li strong {
-            margin-right: 8px;
-        }
+    .contact-data li strong {
+        margin-right: 8px;        
+    }
 
 .user-login a {
     float: right;
@@ -66,9 +66,9 @@ header {
     border-radius: 4px;
 }
 
-    .user-login a:hover, .user-login a:active, .user-login a:focus {
-        background-color: #8BC34A;
-    }
+.user-login a:hover, .user-login a:active, .user-login a:focus {
+    background-color: #8BC34A;
+}
 /* ---------- /header ---------- */
 
 /* ---------- menu ---------- */
@@ -79,10 +79,10 @@ header {
     border-bottom: 1px solid #9E9E9E;
 }
 
-    .menu-container form {
-        margin: 0;
-        padding: 0;
-    }
+.menu-container form {
+    margin: 0;
+    padding: 0;
+}
 
 .menu ul {
     list-style: none;
@@ -92,7 +92,7 @@ header {
     -webkit-padding-start: 0;
     padding: 0;
 }
-
+   
 
     .menu ul li a {
         text-decoration: none;
@@ -114,7 +114,7 @@ header {
 /* ---------- main content ---------- */
 .main {
     padding: 0;
-    margin: 0;
+    margin:0;
 }
 
 .home-banner {
@@ -171,20 +171,41 @@ header {
 
 /* ---------- Misc ---------- */
 input[type="submit"] {
-    float: right;
     line-height: 32px;
     height: 32px;
     padding-left: 16px;
     padding-right: 16px;
     color: #ffffff;
     font-weight: 600;
-    background-color: #AED581;
+    background-color: #AED581 !important;
     text-decoration: none;
     border-radius: 4px;
+      
+    border-width: 0;
+    outline: none;
+    cursor: pointer;
 }
 
     input[type="submit"]:hover,
     input[type="submit"]:active,
     input[type="submit"]:focus {
-        background-color: #8BC34A;
+        background-color: #8BC34A !important;
     }
+
+
+/* Login form */
+.loginForm > div {
+    margin-bottom: 16px;
+}
+
+.loginForm label {
+    display: inline-block;
+    width: 100px;
+    
+}
+
+.loguedUserBox > div {
+    margin-bottom: 16px;
+}
+
+
