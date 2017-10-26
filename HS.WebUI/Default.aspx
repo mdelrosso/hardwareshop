@@ -3,35 +3,23 @@
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent"></asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
-        Pagina principal
-    </h2>
-    <p>
-        <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
-    </p>
-    <p>
-        <asp:Button ID="btnCarrito" runat="server" Text="Ir a Carrito" Width ="250px" BackColor="LightGray" 
-            Visible="False" />
-    </p>
-    <p>
-        <asp:Button ID="btnAdministracionUsuarios" runat="server" Text="Administración de usuarios" Width ="250px" BackColor="LightGray" 
-            Visible="False" />
-        &nbsp;
-    </p>
-    <p>
-        <asp:Button ID="btnBitacora" runat="server" Text="Bitacora" Width ="250px" BackColor="LightGray" 
-            Visible="False" />
-    </p>
-    <p>
-        <asp:Button ID="btnBackupYRestore" runat="server" Text="Backup y Restore" BackColor="LightGray" 
-            Visible="False"  Width ="250px"/>
-    </p>
-    <p>
-        <asp:Button ID="btnIntegridadBD" runat="server" Text="Verificar Integridad de Datos" BackColor="LightGray" 
-            Visible="False"  Width ="250px" />
-    </p>
-    <p>
-        <asp:Button ID="btnCambioDePrecios" runat="server" Text="Actualización de precios" BackColor="LightGray" 
-            Visible="False"  Width ="250px" />
-    </p>
+
+    <div class="home-banner">
+        <div class="overlay">
+            <div class="banner-text">
+                <h1>¡Bienvenido a <span>HARDWARE</span>SHOP!<h1>
+                <p>Más de 1500 productos de informática de la más alta calidad</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>Pagina principal</h2>
+        <p><asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label></p>
+        <p><asp:Button ID="btnCarrito" runat="server" Text="Ir a Carrito" Width ="250px" BackColor="LightGray" Visible="False" /></p>
+        <p><asp:Button ID="btnAdministracionUsuarios" runat="server" Text="Administración de usuarios" Width ="250px" BackColor="LightGray"  Visible="False" />&nbsp;</p>
+        <p><asp:Button ID="btnBitacora" runat="server" Text="Bitacora" Width ="250px" BackColor="LightGray" Visible="False" /></p>
+        <p><asp:Button ID="btnBackupYRestore" runat="server" Text="Backup y Restore" BackColor="LightGray" Visible="False"  Width ="250px"/></p>
+        <p><asp:Button ID="btnIntegridadBD" runat="server" Text="Verificar Integridad de Datos" BackColor="LightGray" Visible="False"  Width ="250px" /></p>
+        <p><asp:Button ID="btnCambioDePrecios" runat="server" Text="Actualización de precios" BackColor="LightGray" Visible="False"  Width ="250px" /></p>
+    </div>
 </asp:Content>

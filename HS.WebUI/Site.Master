@@ -10,28 +10,31 @@
 
 <body>
     <form runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    HARDWARE SHOP
-                </h1>
-            </div>
-            <div class="loginDisplay">
-                <a href="~/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a>
-            </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Página principal"/>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="Nosotros"/>
-                    </Items>
-                </asp:Menu>
-            </div>
+
+    <header>
+        <h1 class="logo"><img src="img/logo.png" /></h1>
+        <ul class="contact-data">
+            <li><strong>Tel:</strong>+54-911-4223-5544</li>
+            <li><strong>Skype:</strong>ventas@hshop.com.ar</li>
+        </ul>
+        <div class="user-login">
+            <a href="~/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a>
         </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-        </div>
+
+        <div class="clear"></div>
+    </header>
+
+    <div class="clear menu-container">
+        <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+            <Items>
+                <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio"/>
+                <asp:MenuItem NavigateUrl="~/About.aspx" Text="Nosotros"/>
+            </Items>
+        </asp:Menu>
+    </div>
+
+    <div class="main">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         <div class="clear"></div>
     </div>
      </form>
