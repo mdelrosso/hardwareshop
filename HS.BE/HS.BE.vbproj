@@ -62,6 +62,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackupDTO.vb" />
     <Compile Include="BitacoraDTO.vb" />
     <Compile Include="ICRUD.vb" />
     <Compile Include="IVerificable.vb" />
@@ -84,6 +85,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="VerificadorDTO.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

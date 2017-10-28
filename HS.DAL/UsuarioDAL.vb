@@ -3,7 +3,7 @@ Imports HS.DAL
 Imports HS.BE
 
 Public Interface IUsuarioDAL
-    Inherits IMapeador(Of UsuarioDTO) ', IVerificator(Of UsuarioDTO)
+    Inherits IMapeador(Of UsuarioDTO), IVerificator(Of UsuarioDTO)
     Function BloquearCuenta(ByRef value As BE.UsuarioDTO) As Boolean
 End Interface
 
@@ -20,12 +20,10 @@ Public Class UsuarioDAL
     ''' </summary>
     ''' <remarks></remarks>
     Private _conversor As IConversor(Of BE.UsuarioDTO) = Nothing
-
     Public Function Alta(ByRef value As BE.UsuarioDTO) As Boolean Implements IUsuarioDAL.Alta
         Dim resultado As Integer = 0
         Dim comando As IDbCommand = Me.Wrapper.CrearComando("INSERT INTO USUARIO VALUES(@nombre, @clave, @email, @bloqueado, 0,0) SET @identity=@@Identity", CommandType.Text)
         Try
-
             Me.Wrapper.AgregarParametro(comando, "@nombre", value.Nombre)
             Me.Wrapper.AgregarParametro(comando, "@clave", value.Clave)
             Me.Wrapper.AgregarParametro(comando, "@email", value.Email)
@@ -35,12 +33,22 @@ Public Class UsuarioDAL
 
             resultado = Me._wrapper.EjecutarConsulta(comando)
 
+            ' asignar el Id devuelto por la consulta al objeto
+            If (resultado > 0) Then
+                value.Id = CType(paramRet.Value, Integer)
+
+                ' Calculo el nuevo digito horizontal
+                value.DigitoHorizontal = CalcularDVH(value)
+                Modificacion(value)
+                VerificadorDAL.ActualizarDVV("USUARIO", "USU_ID")
+            End If
+
         Catch
             Throw
         Finally
             Me.Wrapper.CerrarConexion(comando)
         End Try
-        Return (resultado > 0)
+       Return (resultado > 0)
     End Function
 
     Public Function Baja(ByRef value As BE.UsuarioDTO) As Boolean Implements IUsuarioDAL.Baja
@@ -62,7 +70,6 @@ Public Class UsuarioDAL
     Public Function Consulta(ByRef filtro As BE.UsuarioDTO) As BE.UsuarioDTO Implements IUsuarioDAL.Consulta
         Dim lista As List(Of BE.UsuarioDTO) = Me.ConsultaRango(filtro, Nothing)
         If Not lista Is Nothing AndAlso lista.Count > 0 Then
-            ' retornar solo el primer objeto que cumpla con el filtro
             Return lista(0)
         Else
             Return Nothing
@@ -72,12 +79,10 @@ Public Class UsuarioDAL
     Public Function BloquearCuenta(ByRef value As BE.UsuarioDTO) As Boolean Implements IUsuarioDAL.BloquearCuenta
         value.Bloqueado = True
         Dim resultado As Integer = 0
-
         Dim comando As IDbCommand = Me.Wrapper.CrearComando("UPDATE USUARIO SET Usu_Bloqueado=@bloqueado WHERE Usu_Id=@id", CommandType.Text)
         Try
             Me.Wrapper.AgregarParametro(comando, "@id", value.Id)
             Me.Wrapper.AgregarParametro(comando, "@bloqueado", value.Eliminado)
-
             resultado = Me._wrapper.EjecutarConsulta(comando)
         Catch
             Throw
@@ -92,7 +97,7 @@ Public Class UsuarioDAL
 
         Dim comando As IDbCommand = Me.Wrapper.CrearComando("SELECT * FROM USUARIO WHERE (Usu_nombre=@nombre OR @nombre IS NULL) AND (Usu_Id=@id OR @id IS NULL) ORDER BY Usu_Nombre", CommandType.Text)
         Try
-            If Not filtroDesde Is Nothing AndAlso filtroDesde.Id > 0 Then
+           If Not filtroDesde Is Nothing AndAlso filtroDesde.Id > 0 Then
                 Me.Wrapper.AgregarParametro(comando, "@id", filtroDesde.Id)
             Else
                 Me.Wrapper.AgregarParametro(comando, "@id", DBNull.Value)
@@ -102,21 +107,17 @@ Public Class UsuarioDAL
             Else
                 Me.Wrapper.AgregarParametro(comando, "@nombre", DBNull.Value)
             End If
-
             Using reader As IDataReader = Me.Wrapper.ConsultarReader(comando)
-
+                ' recorrer el IDataReader obtenido de la base de datos y convertirlo a un objeto entidad
                 Do While reader.Read()
                     lista.Add(Me.Conversor.Convertir(reader))
                 Loop
-
             End Using
-
         Catch
             Throw
         Finally
             Me.Wrapper.CerrarConexion(comando)
         End Try
-
         Return lista
     End Function
 
@@ -130,6 +131,12 @@ Public Class UsuarioDAL
             Me.Wrapper.AgregarParametro(comando, "@bloqueado", value.Bloqueado)
             Me.Wrapper.AgregarParametro(comando, "@eliminado", value.Eliminado)
             Me.Wrapper.AgregarParametro(comando, "@id", value.Id)
+
+            value.DigitoHorizontal = CalcularDVH(value)
+            Me.Wrapper.AgregarParametro(comando, "@digitohorizontal", value.DigitoHorizontal)
+
+            resultado = Me._wrapper.EjecutarConsulta(comando)
+
         Catch
             Throw
         Finally
@@ -153,7 +160,6 @@ Public Class UsuarioDAL
     Public Property Wrapper As IComando Implements IUsuarioDAL.Wrapper
         Get
             If Me._wrapper Is Nothing Then
-                ' obtener el wrapper por defecto
                 Me._wrapper = ComandoFactory.CrearComando("Default")
             End If
             Return Me._wrapper
@@ -163,4 +169,44 @@ Public Class UsuarioDAL
         End Set
     End Property
 
+    Private Sub ActualizarDVH(value As UsuarioDTO) Implements IVerificator(Of UsuarioDTO).ActualizarDVH
+        value.DigitoHorizontal = CalcularDVH(value)
+        Modificacion(value)
+    End Sub
+
+    Public Sub ActualizarDVHTabla() Implements IVerificator(Of UsuarioDTO).ActualizarDVHTabla
+        Dim listaDTO As List(Of UsuarioDTO) = ConsultaRango(Nothing, Nothing)
+        For Each objDTO As UsuarioDTO In listaDTO
+            ActualizarDVH(objDTO)
+        Next
+
+    End Sub
+
+    Private Function CalcularDVH(ByRef value As UsuarioDTO) As Integer Implements IVerificator(Of UsuarioDTO).CalcularDVH
+        Dim DVH As Integer = 0
+        DVH += DBUtils.CalcularDigitoVerificador(CStr(value.Id), 0)
+        DVH += DBUtils.CalcularDigitoVerificador(CStr(value.Nombre), 1)
+        DVH += DBUtils.CalcularDigitoVerificador(CStr(value.Clave), 2)
+        DVH += DBUtils.CalcularDigitoVerificador(CStr(value.Email), 3)
+        DVH += DBUtils.CalcularDigitoVerificador(CStr(value.Bloqueado), 4)
+        DVH += DBUtils.CalcularDigitoVerificador(CStr(value.Eliminado), 5)
+        Return DVH
+    End Function
+
+    Private Function VerificarDVH(value As UsuarioDTO) As Boolean Implements IVerificator(Of UsuarioDTO).VerificarDVH
+        If (value.DigitoHorizontal <> CalcularDVH(value)) Then
+            Return False
+        End If
+        Return True
+    End Function
+
+    Public Function VerificarDVHTabla() As Boolean Implements IVerificator(Of UsuarioDTO).VerificarDVHTabla
+        Dim listaDTO As List(Of UsuarioDTO) = ConsultaRango(Nothing, Nothing)
+        For Each objDTO As UsuarioDTO In listaDTO
+            If (Not VerificarDVH(objDTO)) Then
+                Throw New Exception("Verificacion Digito Horizontal en tabla USUARIO, id:" + CStr(objDTO.Id) + " Fallido")
+            End If
+        Next
+        Return True
+    End Function
 End Class

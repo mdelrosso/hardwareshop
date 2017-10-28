@@ -10,7 +10,6 @@ Public Class Login
     ''' <remarks></remarks>
     Private vistaAutenticacion As AutenticacionVista = New AutenticacionVista()
 
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
             If Not Page.IsPostBack Then
@@ -48,7 +47,22 @@ Public Class Login
                 divIniciarSesion.Visible = Not divCerrarSesion.Visible
                 TryCast(Me.Master, Site).UpdateLogin()
 
-                'Verificación de integridad -- Segunda entrega
+                Dim bdOk As Boolean = False
+                Dim sMsg As String = Nothing
+                Try
+                    sMsg = IntegridadBLL.VerificarIntegridadBD
+                    If (sMsg = Nothing) Then
+                        bdOk = True
+                    End If
+                Catch ex As Exception
+                End Try
+                If Not (bdOk) Then
+                    Dim autenticacionVista As AutenticacionVista = New AutenticacionVista()
+                    Dim usuarioActual = autenticacionVista.UsuarioActual
+                    If autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMINISTRACION") Then
+                        Response.Redirect("~/IntegridadBD.aspx")
+                    End If
+                End If
             Else
                 If (vistaAutenticacion.IntentosFallidos >= MaxIntentos) Then
                     vistaAutenticacion.BloquearUsuario(usuarioLogin)
@@ -59,7 +73,7 @@ Public Class Login
                     If (vistaAutenticacion.IntentosFallidos > 0) Then
                         strIntentos = "Intentos restantes " + CStr(MaxIntentos - vistaAutenticacion.IntentosFallidos)
                     End If
-                    lblMensaje.Text = "Usuario o contraseña invalida, por favor vuela a intentarlo. " + strIntentos
+                    lblMensaje.Text = "Usuario o contraseña invalida, por favor vuelva a intentarlo. " + strIntentos
                 End If
                 lblMensaje.ForeColor = Drawing.Color.Red
             End If

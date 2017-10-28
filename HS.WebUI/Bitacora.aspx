@@ -57,8 +57,8 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <asp:Button ID="btnVolver" runat="server" Text="Volver" BackColor="LightGray" />
+            <td colspan="3" style="text-align:center">
+                <asp:Button ID="btnVolver" runat="server" Text="Volver" />
             </td>
         </tr>
     </table>

@@ -92,11 +92,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="BackupRestore.aspx" />
     <Content Include="Bitacora.aspx" />
     <Content Include="css\estilos.css" />
     <Content Include="Default.aspx" />
+    <Content Include="IntegridadBD.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.designer.vb">
@@ -104,6 +108,13 @@
     </Compile>
     <Compile Include="About.aspx.vb">
       <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="BackupRestore.aspx.designer.vb">
+      <DependentUpon>BackupRestore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BackupRestore.aspx.vb">
+      <DependentUpon>BackupRestore.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Bitacora.aspx.designer.vb">
@@ -121,6 +132,13 @@
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="ErrorHandler.vb" />
+    <Compile Include="IntegridadBD.aspx.designer.vb">
+      <DependentUpon>IntegridadBD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IntegridadBD.aspx.vb">
+      <DependentUpon>IntegridadBD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Login.aspx.designer.vb">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>

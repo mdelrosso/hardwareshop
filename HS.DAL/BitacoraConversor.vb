@@ -3,7 +3,6 @@
 Public Class BitacoraConversor
     Implements IConversor(Of BE.BitacoraDTO)
 
-
     Public Function Convertir(row As DataRow) As BitacoraDTO Implements IConversor(Of BitacoraDTO).Convertir
         Dim bitacoraDTO As BitacoraDTO = New BitacoraDTO
         bitacoraDTO.Id = Convert.ToInt32(row("IDBitacora"))

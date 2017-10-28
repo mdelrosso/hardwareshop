@@ -14,7 +14,6 @@ End Interface
 Public Class FamiliaPermisoDAL
     Implements IFamiliaPermisoDAL
 
-
     ''' <summary>
     ''' objeto que encapsula la funcionalidad de acceso, persistencia y lectura
     ''' de datos en el origen de datos.

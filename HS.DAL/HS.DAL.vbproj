@@ -63,14 +63,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackupConversor.vb" />
+    <Compile Include="BackupDAL.vb" />
     <Compile Include="BitacoraConversor.vb" />
     <Compile Include="BitacoraDAL.vb" />
     <Compile Include="ComandoFactory.vb" />
     <Compile Include="DB.vb" />
+    <Compile Include="DBUtils.vb" />
     <Compile Include="FamiliaPermisoDAL.vb" />
     <Compile Include="IComando.vb" />
     <Compile Include="IConversor.vb" />
     <Compile Include="IMapeador.vb" />
+    <Compile Include="IVerificator.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -91,6 +95,8 @@
     <Compile Include="UsuarioConversor.vb" />
     <Compile Include="UsuarioDAL.vb" />
     <Compile Include="UsuarioPermisoDAL.vb" />
+    <Compile Include="VerificadorConversor.vb" />
+    <Compile Include="VerificadorDAL.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

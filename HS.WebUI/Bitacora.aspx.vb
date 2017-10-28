@@ -10,6 +10,14 @@ Public Class Bitacora
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
+            'Valido si el usuario posee permiso para acceder a esta página.
+            Dim autenticacionVista As AutenticacionVista = New AutenticacionVista()
+            Dim usuarioActual = autenticacionVista.UsuarioActual
+            If Not autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMINISTRACION") Then
+                'Si no lo tiene se redirecciona a página de inicio.
+                Me.Response.Redirect("~/Default.aspx")
+            End If
+
             lblMensaje.Text = String.Empty
             If Not Page.IsPostBack Then
                 MultiView1.ActiveViewIndex = 0
