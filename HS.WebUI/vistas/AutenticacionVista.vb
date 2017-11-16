@@ -64,19 +64,22 @@ Public Class AutenticacionVista
     ''' Inicia sesion con un usuario
     ''' </summary>
     Public Function IniciarSesion(ByVal value As UsuarioDTO) As Boolean
-        ' por predeterminado se retorna falso, a menos que todas las condiciones sean validas
+
+        ' --- PASO 6: Se inicia sesión, invocando al autenticador  
         Dim usuarioIntentoActual As UsuarioDTO = Me._autenticador.IniciarSesion(value, Me.IntentosFallidos)
 
-        ' guardar los intentos fallidos
+        ' Se guardar lon intentos fallidos
         Me.IntentosFallidos = Me._autenticador.IntentosFallidos
         Dim loginOk = False
         If Not usuarioIntentoActual Is Nothing Then
-            ' es un usuario valido, crear session the usuario
+            ' es un usuario valido, se crea la variable de Sesion de usuario
             If Not HttpContext.Current Is Nothing Then
                 HttpContext.Current.Session("UsuarioActual") = usuarioIntentoActual
             End If
             loginOk = True
         End If
+
+        ' --- PASO 9: Se guarda en la bitacora el resultado del loguin ----
         If loginOk Then
             Dim mBitacora As BitacoraBLL = New BitacoraBLL()
             mBitacora.Loguear(BitacoraBLL.TIPOLOG.LOGINOK, value.Nombre)
@@ -102,12 +105,15 @@ Public Class AutenticacionVista
     ''' de inicio de sesion.
     ''' </summary>
     Public Function CrearUsuarioParaIniciarSesion(ByVal nombre As String, ByVal clave As String) As UsuarioDTO
+
+        ' --- PASO 2 : Se instancia un usuario nuevo y se encripta la clave ingresada en el loguin
         Dim usuarioLogin As UsuarioDTO = New UsuarioDTO()
         usuarioLogin.Nombre = nombre
         usuarioLogin.Clave = Encrypter.EncriptarSHA512(clave)
         usuarioLogin.Eliminado = False
         usuarioLogin.Bloqueado = False
         Return usuarioLogin
+
     End Function
 
     ''' <summary>
@@ -129,6 +135,8 @@ Public Class AutenticacionVista
     End Sub
 
     Function UsuarioBloqueado(usuarioLogin As UsuarioDTO) As Boolean
+        ' --- PASO 4: Se consulta el usuario por nombre, y se devuelve el atributo Bloqueado, 
+        ' ---- que puede estar en verdadero o falso.
         If Not usuarioLogin Is Nothing Then
             Dim mUsuarioBLL As UsuarioBLL = New UsuarioBLL()
             Dim mDTO = mUsuarioBLL.Consulta(usuarioLogin)

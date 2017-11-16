@@ -66,6 +66,7 @@
     <Compile Include="BackupBLL.vb" />
     <Compile Include="BitacoraBLL.vb" />
     <Compile Include="Encrypter.vb" />
+    <Compile Include="HardwareBLL.vb" />
     <Compile Include="IntegridadBLL.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

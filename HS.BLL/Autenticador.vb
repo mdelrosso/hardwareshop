@@ -54,15 +54,13 @@ Public Class Autenticador
     ''' el inicio de sesion fue exitoso, sino Nothing.
     ''' </summary>
     Public Function IniciarSesion(ByVal value As UsuarioDTO, ByVal intentosFallidos As Integer) As UsuarioDTO Implements IAutenticador.IniciarSesion
+        ' --- PASO 7: Se controla que el usuario no esté eliminado, ni bloqueado 
+        '   y que no se haya excedido de los intentos fallidos  ----
         Dim usuarioIntentoActual As UsuarioDTO = Nothing
-
         Me._intentosFallidos = intentosFallidos
-
         If Not value Is Nothing AndAlso Not String.IsNullOrWhiteSpace(value.Nombre) AndAlso _
             Not String.IsNullOrWhiteSpace(value.Clave) Then
-
             usuarioIntentoActual = Me._UsuarioBLL.Consulta(value)
-
             If Not usuarioIntentoActual Is Nothing Then
 
                 If usuarioIntentoActual.Nombre.ToUpper().Equals(value.Nombre.ToUpper()) AndAlso _
@@ -74,17 +72,17 @@ Public Class Autenticador
                 Else
                     Me._intentosFallidos += 1
 
-                    ' si se llego a los 3 intentos fallidos, bloquear al usuario
+                    ' --- PASO 8: En caso de llegar los 3 intentos fallidos, se bloquea el usuario
                     If Me.IntentosFallidos.Equals(3) Then
                         usuarioIntentoActual.Bloqueado = True
                         Me._UsuarioBLL.Modificacion(usuarioIntentoActual)
                     End If
-
-                    ' limpiar el usuario actual ya que tiene datos invalidos
+                    'loguin invalido, se devuelve null/nothing
                     usuarioIntentoActual = Nothing
                 End If
             End If
         End If
+        'Retorna el usuario con todas sus propiedades establecidas si el inicio de sesion fue exitoso, sino Nothing.
         Return usuarioIntentoActual
     End Function
 

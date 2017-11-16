@@ -103,3 +103,43 @@ C:\Users\Cristian\Desktop\hardwareshop\HS.WebUI\obj\Debug\HS.WebUI.vbproj.Genera
 C:\Users\Cristian\Desktop\hardwareshop\HS.WebUI\obj\Debug\HS.WebUI.dll
 C:\Users\Cristian\Desktop\hardwareshop\HS.WebUI\obj\Debug\HS.WebUI.xml
 C:\Users\Cristian\Desktop\hardwareshop\HS.WebUI\obj\Debug\HS.WebUI.pdb
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.WebUI.dll.config
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.WebUI.dll
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.WebUI.pdb
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.WebUI.xml
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.BE.dll
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.BLL.dll
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.DAL.dll
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.BE.pdb
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.BE.xml
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.BLL.pdb
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.BLL.xml
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.DAL.pdb
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\HS.DAL.xml
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\obj\Debug\HS.WebUI.vbprojResolveAssemblyReference.cache
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\obj\Debug\HS.WebUI.Resources.resources
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\obj\Debug\HS.WebUI.vbproj.GenerateResource.Cache
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\obj\Debug\HS.WebUI.dll
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\obj\Debug\HS.WebUI.xml
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\obj\Debug\HS.WebUI.pdb
+C:\Users\lluengo\Desktop\hardwareshop\HS.WebUI\bin\AjaxControlToolkit.dll
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.WebUI.dll.config
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.WebUI.dll
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.WebUI.pdb
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.WebUI.xml
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\AjaxControlToolkit.dll
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.BE.dll
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.BLL.dll
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.DAL.dll
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.BE.pdb
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.BE.xml
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.BLL.pdb
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.BLL.xml
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.DAL.pdb
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\bin\HS.DAL.xml
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\obj\Debug\HS.WebUI.vbprojResolveAssemblyReference.cache
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\obj\Debug\HS.WebUI.Resources.resources
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\obj\Debug\HS.WebUI.vbproj.GenerateResource.Cache
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\obj\Debug\HS.WebUI.dll
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\obj\Debug\HS.WebUI.xml
+C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\obj\Debug\HS.WebUI.pdb

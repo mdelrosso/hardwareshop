@@ -32,6 +32,13 @@
                 <asp:Button  ID="btnRecalcularDigitosVerificadores" runat="server" Text="Ejecutar" />                                
             </td>
         </tr>
+        <tr> <td></td> </tr>
+        <tr>
+            <td colspan="3"><h3>Restauración el sistema:</h3></td>
+            <td >                                
+                <asp:Button  ID="btnRestaurar" runat="server" Text="Acceder" />                                
+            </td>
+        </tr>
         <tr>
             <td>
             </td>

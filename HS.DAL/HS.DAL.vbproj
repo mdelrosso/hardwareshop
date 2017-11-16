@@ -71,6 +71,8 @@
     <Compile Include="DB.vb" />
     <Compile Include="DBUtils.vb" />
     <Compile Include="FamiliaPermisoDAL.vb" />
+    <Compile Include="HardwareConversor.vb" />
+    <Compile Include="HardwareDAL.vb" />
     <Compile Include="IComando.vb" />
     <Compile Include="IConversor.vb" />
     <Compile Include="IMapeador.vb" />

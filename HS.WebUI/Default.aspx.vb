@@ -21,13 +21,13 @@ Public Class _Default
                     btnCarrito.Visible = autenticacionVista.UsuarioPoseePermiso(usuarioActual, "USUARIOFINAL")
                     btnCambioDePrecios.Visible = autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMIN_NEGOCIO")
                     btnBitacora.Visible = autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMINISTRACION")
-                    btnAdministracionUsuarios.Visible = autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMIN_USUARIOS") Or autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMIN_PERFILES") Or autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMINISTRACION")
+                    btnAdministracionUsuarios.Visible = autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMIN_USUARIOS") Or autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMINISTRACION")
                     btnBackupYRestore.Visible = autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMINISTRACION")
                 Else
                     If autenticacionVista.UsuarioPoseePermiso(usuarioActual, "ADMINISTRACION") Then
                         Response.Redirect("~/IntegridadBD.aspx")
                     Else
-                        lblMensaje.Text = "UPS :(  Parece haber problemas con el sistema. Nuestros administradores estan trabajando para solucionarlo. Muchas gracias"
+                        lblMensaje.Text = "En estos momentos tenemos problemas con el sistema. Nuestros administradores estan trabajando para solucionarlo. Muchas gracias"
                         lblMensaje.ForeColor = Drawing.Color.Red
                     End If
                 End If
@@ -42,7 +42,7 @@ Public Class _Default
 
 
     Protected Sub btnCambioDePrecios_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCambioDePrecios.Click
-        Response.Redirect("~/CambioDePrecios.aspx")
+        Response.Redirect("~/Hardware.aspx")
     End Sub
 
     Protected Sub btnBitacora_Click(sender As Object, e As EventArgs) Handles btnBitacora.Click
@@ -61,4 +61,13 @@ Public Class _Default
         Response.Redirect("~/IntegridadBD.aspx")
     End Sub
     
+    Private Sub btnAdministracionUsuarios_Click(sender As Object, e As EventArgs) Handles btnAdministracionUsuarios.Click
+        Response.Redirect("~/AdministracionUsuarios.aspx")
+    End Sub
+
+
+
+
+
+
 End Class

@@ -17,7 +17,7 @@
 
         <div class="formControl">
             <label for="txtUsuario">Contraseña</label>
-            <asp:TextBox ID="txtClave" runat="server" TextMode="Password" ControlToValidate="txtClave"></asp:TextBox>
+            <asp:TextBox ID="txtClave" runat="server" TextMode="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe ingresar la contraseña." ControlToValidate="txtClave" EnableClientScript="True" SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
             <br />

@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="BackupDTO.vb" />
     <Compile Include="BitacoraDTO.vb" />
+    <Compile Include="HardwareDTO.vb" />
     <Compile Include="ICRUD.vb" />
     <Compile Include="IVerificable.vb" />
     <Compile Include="PermisoCompuesto.vb" />

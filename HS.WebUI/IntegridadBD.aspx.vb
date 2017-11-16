@@ -40,7 +40,6 @@ Public Class IntegridadBD
         End Try
 
     End Sub
-
     Protected Sub RecalcularDigitosVerificadores(sender As Object, e As EventArgs) Handles btnRecalcularDigitosVerificadores.Click
         Try
             IntegridadBLL.RegenerarDigitosVerificadores()
@@ -50,5 +49,9 @@ Public Class IntegridadBD
             lblMensaje.Text = "ERROR. Regenericacion de digitos fallida. " + ErrorHandler.ObtenerMensajeDeError(ex)
             lblMensaje.ForeColor = Drawing.Color.Red
         End Try
+    End Sub
+
+    Private Sub btnRestaurar_Click(sender As Object, e As EventArgs) Handles btnRestaurar.Click
+        Response.Redirect("~/BackupRestore.aspx")
     End Sub
 End Class

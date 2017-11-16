@@ -36,11 +36,18 @@ Public Class Login
         Try
             Dim usuarioLogin As UsuarioDTO = Nothing
 
+            ' --- PASO 1: Se invoca la instancia de un nuevo usuario ----
             usuarioLogin = vistaAutenticacion.CrearUsuarioParaIniciarSesion(txtUsuario.Text, txtClave.Text)
+
+            ' --- PASO 3: Se verifica si el usuario está bloqueado  ----
             If (vistaAutenticacion.UsuarioBloqueado(usuarioLogin)) Then
                 lblMensaje.Text = "El usuario que ingreso se encuentra bloqueado. "
                 lblMensaje.ForeColor = Drawing.Color.Red
+
+                ' --- PASO 5: Se inicia sesión  ----
             ElseIf vistaAutenticacion.IniciarSesion(usuarioLogin) Then
+
+                ' --- PASO 10: Si el usuario inicio sesión OK. Se pone su nombre en el masterPage ----
                 lblMensaje.Text = ""
                 lblUsuarioActual.Text = vistaAutenticacion.UsuarioActual.Nombre
                 divCerrarSesion.Visible = True
@@ -50,6 +57,7 @@ Public Class Login
                 Dim bdOk As Boolean = False
                 Dim sMsg As String = Nothing
                 Try
+                    ' --- PASO 11: Se verifica integridad de la base de datos ----
                     sMsg = IntegridadBLL.VerificarIntegridadBD
                     If (sMsg = Nothing) Then
                         bdOk = True
@@ -64,6 +72,8 @@ Public Class Login
                     End If
                 End If
             Else
+
+                ' --- En caso de no pasar las validaciones se muestra el mensaje de error correspondiente ----
                 If (vistaAutenticacion.IntentosFallidos >= MaxIntentos) Then
                     vistaAutenticacion.BloquearUsuario(usuarioLogin)
                     lblMensaje.Text = "Intento numero " + CStr(MaxIntentos) + " fallido. Se ha bloqueado el usuario " + usuarioLogin.Nombre

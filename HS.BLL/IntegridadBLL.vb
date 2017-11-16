@@ -10,6 +10,8 @@ Public Class IntegridadBLL
         Dim mUsuario As UsuarioDAL = New UsuarioDAL
         Dim mVerificador As VerificadorDAL = New VerificadorDAL
         Dim mBitacora As BitacoraDAL = New BitacoraDAL
+        Dim mHardware As HardwareDAL = New HardwareDAL
+
         Dim sMsg As String = Nothing
 
         Try
@@ -31,6 +33,13 @@ Public Class IntegridadBLL
         End Try
 
         Try
+            mVerificador.VerificarDVV("HARDWARE", "HARD_ID")
+        Catch ex As Exception
+            sMsg += ObtenerMensajeDeError(ex)
+        End Try
+
+
+        Try
             mUsuario.VerificarDVHTabla()
         Catch ex As Exception
             sMsg += ObtenerMensajeDeError(ex)
@@ -48,6 +57,12 @@ Public Class IntegridadBLL
             sMsg += ObtenerMensajeDeError(ex)
         End Try
 
+        Try
+            mHardware.VerificarDVHTabla()
+        Catch ex As Exception
+            sMsg += ObtenerMensajeDeError(ex)
+        End Try
+
         Return sMsg
     End Function
 
@@ -55,15 +70,18 @@ Public Class IntegridadBLL
         Dim mUsuario As UsuarioDAL = New UsuarioDAL
         Dim mBitacora As BitacoraDAL = New BitacoraDAL
         Dim mVerificador As VerificadorDAL = New VerificadorDAL
-
+        Dim mHardware As HardwareDAL = New HardwareDAL
         Try
             mUsuario.ActualizarDVHTabla()
             mBitacora.ActualizarDVHTabla()
             mVerificador.ActualizarDVHTabla()
+            mHardware.ActualizarDVHTabla()
 
             VerificadorDAL.ActualizarDVV("USUARIO", "USU_ID")
             VerificadorDAL.ActualizarDVV("BITACORA", "IDBITACORA")
             VerificadorDAL.ActualizarDVV("DIGITOVERIFICADOR", "IDDIGITOVERIFICADOR")
+            VerificadorDAL.ActualizarDVV("HARDWARE", "HARD_ID")
+
         Catch ex As Exception
             Throw
         End Try

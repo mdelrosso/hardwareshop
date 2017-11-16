@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +41,10 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=1.0.20229.24049, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit-1.0.20229.24049.1.0.20229.24049\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -92,10 +97,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AdministracionUsuarios.aspx" />
     <Content Include="BackupRestore.aspx" />
     <Content Include="Bitacora.aspx" />
+    <Content Include="Carrito.aspx" />
     <Content Include="css\estilos.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Hardware.aspx" />
     <Content Include="IntegridadBD.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config">
@@ -108,6 +116,13 @@
     </Compile>
     <Compile Include="About.aspx.vb">
       <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="AdministracionUsuarios.aspx.designer.vb">
+      <DependentUpon>AdministracionUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdministracionUsuarios.aspx.vb">
+      <DependentUpon>AdministracionUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="BackupRestore.aspx.designer.vb">
@@ -124,6 +139,13 @@
       <DependentUpon>Bitacora.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Carrito.aspx.designer.vb">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Carrito.aspx.vb">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -132,6 +154,13 @@
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="ErrorHandler.vb" />
+    <Compile Include="Hardware.aspx.designer.vb">
+      <DependentUpon>Hardware.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hardware.aspx.vb">
+      <DependentUpon>Hardware.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="IntegridadBD.aspx.designer.vb">
       <DependentUpon>IntegridadBD.aspx</DependentUpon>
     </Compile>
@@ -174,6 +203,7 @@
     </Compile>
     <Compile Include="vistas\AutenticacionVista.vb" />
     <Compile Include="vistas\BitacoraVista.vb" />
+    <Compile Include="vistas\HardwareVista.vb" />
     <Compile Include="vistas\PermisoVista.vb" />
     <Compile Include="vistas\UsuarioVista.vb" />
   </ItemGroup>
@@ -196,6 +226,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="Site.Master" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
