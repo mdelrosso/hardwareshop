@@ -143,3 +143,4 @@ C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\obj\Debug\H
 C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\obj\Debug\HS.WebUI.dll
 C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\obj\Debug\HS.WebUI.xml
 C:\Users\Cristian\Desktop\hardwareshop V12\hardwareshop V12\HS.WebUI\obj\Debug\HS.WebUI.pdb
+C:\Users\IEUser\Desktop\hardwareshop\HS.WebUI\bin\AjaxControlToolkit.dll

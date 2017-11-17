@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class Bitacora
-
+    
     '''<summary>
     '''lblMensaje control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class Bitacora
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''MultiView1 control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class Bitacora
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MultiView1 As Global.System.Web.UI.WebControls.MultiView
-
+    
     '''<summary>
     '''ViewBitacora control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class Bitacora
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ViewBitacora As Global.System.Web.UI.WebControls.View
-
+    
     '''<summary>
     '''grillaBitacora control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class Bitacora
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents grillaBitacora As Global.System.Web.UI.WebControls.GridView
-
+    
     '''<summary>
     '''btnVolver control.
     '''</summary>
